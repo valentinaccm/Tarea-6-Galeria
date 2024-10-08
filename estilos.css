@@ -1,0 +1,160 @@
+:root {
+    --color-primario: #ff0077; /* Color del header */
+    --color-secundario: #3a003e; /* Color del nav */
+    --text-color: white;
+    --footer-bg: black;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--color-primario);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: var(--color-secundario);
+    margin-top: 15px;
+    border-radius: 8px;
+    margin: 0 auto;
+    max-width: 1024px;
+    align-items: center;
+
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    gap: 30px;
+    padding: 10px;
+    margin-top: 16px;
+    
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: lighter;
+    transition: color 0.3s;
+
+}
+
+.nav-links a:hover {
+    color: #ffcccc;
+}
+
+.datos_icons {
+    display: flex;
+    gap: 30px;
+    margin-right: 20px;
+        a {
+            font-size: 20px;
+            line-height: 20px;
+            color: white;
+            transition: .3s ease-in-out;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            color: #ffcccc;
+        }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+    grid-template-areas:
+        "img1 img1 img2 img3"
+        "img4 img5 img2 img6"
+        "img4 img7 img8 img9";
+    max-width: 1024px;
+    margin: 20px auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.grid-item {
+    overflow: hidden;
+}
+
+.grid-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Asignación de áreas específicas a cada imagen */
+.img1 { grid-area: img1; }
+.img2 { grid-area: img2; }
+.img3 { grid-area: img3; }
+.img4 { grid-area: img4; }
+.img5 { grid-area: img5; }
+.img6 { grid-area: img6; }
+.img7 { grid-area: img7; }
+.img8 { grid-area: img8; }
+.img9 { grid-area: img9; }
+
+footer {
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 150px);
+        grid-template-areas:
+            "img1 img2"
+            "img3 img4"
+            "img5 img6"
+            "img7 img8"
+            "img9 img9";
+    }
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        align-content: flex-start;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        text-align: center;
+    }
+    
+    .datos_icons {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+    }
+}
